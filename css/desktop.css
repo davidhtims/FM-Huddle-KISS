@@ -1,0 +1,663 @@
+/* Open Props */
+:where(html) {
+    /* --font-sans: system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,Noto Sans,sans-serif; */
+    /* --font-serif: ui-serif,serif; */
+    /* --font-mono: Dank Mono,Operator Mono,Inconsolata,Fira Mono,ui-monospace,SF Mono,Monaco,Droid Sans Mono,Source Code Pro,monospace; */
+    --font-weight-1: 100;
+    --font-weight-2: 200;
+    --font-weight-3: 300;
+    --font-weight-4: 400;
+    --font-weight-5: 500;
+    --font-weight-6: 600;
+    --font-weight-7: 700;
+    --font-weight-8: 800;
+    --font-weight-9: 900;
+    --font-lineheight-00: .95;
+    --font-lineheight-0: 1.1;
+    --font-lineheight-1: 1.25;
+    --font-lineheight-2: 1.375;
+    --font-lineheight-3: 1.5;
+    --font-lineheight-4: 1.75;
+    --font-lineheight-5: 2;
+    --font-letterspacing-0: -.05em;
+    --font-letterspacing-1: .025em;
+    --font-letterspacing-2: .050em;
+    --font-letterspacing-3: .075em;
+    --font-letterspacing-4: .150em;
+    --font-letterspacing-5: .500em;
+    --font-letterspacing-6: .750em;
+    --font-letterspacing-7: 1em;
+    --font-size-00: .5rem;
+    --font-size-0: .75rem;
+    --font-size-1: 1rem;
+    --font-size-2: 1.1rem;
+    --font-size-3: 1.25rem;
+    --font-size-4: 1.5rem;
+    --font-size-5: 2rem;
+    --font-size-6: 2.5rem;
+    --font-size-7: 3rem;
+    --font-size-8: 3.5rem;
+    --font-size-fluid-0: clamp(.75rem, 2vw, 1rem);
+    --font-size-fluid-1: clamp(1rem, 4vw, 1.5rem);
+    --font-size-fluid-2: clamp(1.5rem, 6vw, 2.5rem);
+    --font-size-fluid-3: clamp(2rem, 9vw, 3.5rem);
+
+    --shadow-color: 220 3% 15%;
+    --shadow-strength: 1%;
+    --shadow-3:
+        0 -1px 3px 0 hsl(var(--shadow-color) / calc(var(--shadow-strength) + 2%)),
+        0 1px 2px -5px hsl(var(--shadow-color) / calc(var(--shadow-strength) + 2%)),
+        0 2px 5px -5px hsl(var(--shadow-color) / calc(var(--shadow-strength) + 4%)),
+        0 4px 12px -5px hsl(var(--shadow-color) / calc(var(--shadow-strength) + 5%)),
+        0 12px 15px -5px hsl(var(--shadow-color) / calc(var(--shadow-strength) + 7%));
+}
+
+/* NB If using Google Fonts, don't use @font-face. */
+
+/* Show a notice if :has() is not supported */
+@supports not selector(:has(a, b)) {
+    .notice {
+        width: 100%;
+        display: block !important;
+        color: red;
+        background-color: yellow;
+        border: 4px solid red;
+        font-size: 2rem;
+        line-height: 4rem;
+        margin: 0px;
+        padding: 40px;
+        border-radius: 20px;
+    }
+}
+
+
+
+@layer base,
+layout,
+design,
+look;
+
+
+@layer base {
+    * {
+        box-sizing: border-box;
+        margin: 0px;
+        /* padding: 0px; */
+        /* outline: 1px solid red; */
+    }
+
+    :root {
+
+
+
+        /* ==== Props ==== */
+
+
+        /* ## Layout */
+
+        /* The designs were created to the following widths: */
+
+        --size-mobile: 375px;
+        --size-desktop: 1440px;
+
+        /* left and right gutter (left margin) */
+        --size-gutter: 88px;
+
+        /* help keep article header background under body header */
+        /* ? by eye */
+        --size-body-header-height: 150px;
+        /* ## Colors */
+
+        /* ### Primary */
+
+        --color-action: hsl(322, 100%, 66%);
+        --color-action-active: hsl(322, 100%, 80%);
+
+        /* ### Neutral */
+
+        --very-pale-cyan: hsl(193, 100%, 96%);
+        --very-dark-cyan: hsl(192, 100%, 9%);
+        --grayish-blue: hsl(208, 11%, 55%);
+
+        /* ## Typography */
+
+        /* ### Body Copy */
+
+        --font-size: 18px;
+
+        /* ### Headings */
+
+        /* TODO */
+        /* - Family: [Poppins](https://fonts.google.com/specimen/Poppins) */
+        /* --font-weight: 600; */
+
+        /* ### Body, Call-to-actions */
+
+        /* TODO */
+        /* - Family: [Open Sans](https://fonts.google.com/specimen/Open+Sans) */
+        /* - Weights: 400, 700 */
+
+        /* ## Icons */
+        /* TODO */
+        /* For the social icons, you can use a font icon library. Some suggestions can be found below:
+
+    - [Font Awesome](https://fontawesome.com/)
+    - [IcoMoon](https://icomoon.io/)
+    - [Ionicons](https://ionicons.com/) */
+    }
+}
+
+@layer typography {
+
+    :root {
+        font-family: "Open Sans";
+        font-weight: 400;
+        font-size: 1.1rem;
+    }
+
+
+
+
+
+
+    h1,
+    h2,
+    h3 {
+        font-family: "Poppins", sans-serif;
+    }
+
+    h1, h2 {
+        font-size: 2.3rem;
+        font-weight: var(--font-weight-6);
+        line-height: var(--font-lineheight-3);
+        letter-spacing: var(--font-letterspacing-1);
+    }
+
+    h2 {
+        font-size: var(--font-size-4);
+    }
+
+    section:last-of-type h2 {
+        font-size: 30px;
+        text-align: center;
+    }
+
+    section p {
+        font-size: var(--font-size-1);
+        font-weight: 400;
+        color: #999;
+    }
+}
+
+/* ==== LAYOUT ==== */
+
+@layer layout {
+
+    body {
+        width: auto;
+        max-width: var(--size-desktop);
+        margin: 0px auto;
+        padding-top: 10px;
+    }
+
+    body>header {
+
+        height: var(--size-body-header-height);
+        padding: 0px var(--size-gutter);
+        display: flex;
+        justify-items: center;
+
+        /* Center image vertically in link */
+        & a {
+            display: flex;
+            align-items: center;
+        }
+
+        & img {
+            /* Measure mockup */
+            width: 200px;
+            height: 31px;
+            /* background-color: aqua; */
+        }
+
+        & a:last-of-type {
+            margin-left: auto;
+            border-radius: 20px;
+            background-color: white;
+        }
+    }
+
+    article {
+        margin-top: calc(var(--size-body-header-height) * -1);
+    }
+
+
+
+    article>header {
+        display: grid;
+        grid-template-columns: 1fr 1.2fr;
+
+        /* Allow for the body header overlaying the article header which has a negative margin top */
+        /* Make the top of the 3rd row dissect the center of the adjacent image. */
+        grid-template-rows: var(--size-body-header-height) 2fr 1fr 1fr;
+
+        /* vertically center the image in the header  */
+        /* align-items: center; */
+        margin: 0 0;
+        padding-top: var(--size-article-content-from-page-top-calc);
+        /* background-color: #efefef; */
+
+        padding-bottom: 70px;
+        padding-inline: var(--size-gutter);
+
+        /* ? */
+        /* column-gap: 20px; */
+
+        & h1,
+        p,
+        a {
+            grid-column: 1;
+        }
+
+        & h1 {
+            grid-row: 2;
+            /* Push the heading to the bottom */
+            /* margin-top: 100px; */
+            align-self: flex-end;
+
+            /* Using a margin-bottom because the design seems to require that the paragraph
+            align with the center of the adjacent image. That alignment is assured with the
+            grid row configuration. */
+            margin-bottom: 25px;
+            text-wrap: balance;
+
+        }
+
+        & p {
+            grid-row: 3;
+            max-width: 55ch;
+        }
+
+        & a {
+            grid-row: 4;
+            align-self: flex-start;
+            /* ? */
+            width: fit-content;
+        }
+
+        & img {
+            grid-column: 2;
+            grid-row: 2/-1;
+            align-self: center;
+            max-width: 100%;
+            /* ? restore aspect ratio */
+            height: auto;
+            margin-left: 30px;
+        }
+
+    }
+
+   
+
+    body>header img {}
+
+    section {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 1fr 1fr;
+        justify-items: center;
+        border-radius: 20px;
+        margin-top: 40px;
+        margin-inline: 300px;
+        padding: 66px 20px 48px 20px;
+
+        & h2 {
+            grid-column: 1/-1;
+            align-self: flex-end;
+            margin-bottom: 40px;
+        }
+
+        & p {
+            grid-column: 1/-1;
+            max-width: 60ch;
+        }
+
+        & a {
+            grid-column: 1/-1;
+        }
+    }
+
+    section:first-of-type {
+        margin-top: 160px;
+    }
+
+    section:has(img) {
+        margin-inline: 100px;
+        padding: 40px 20px 40px 100px;
+
+        column-gap: 10vw;
+
+        & h2, p {
+            grid-column: 1;
+
+            /* Don't need? */
+            /* grid-row: 1; */
+        }
+
+        & h2 {
+            grid-row: 1;
+            justify-self: left;
+        }
+
+
+        /* It seems that the h2 doesn't need the row specified so we can put
+        the p with that h2. */
+        /* & p {
+            grid-column: 1; */
+
+        /* TODO
+            Handle multiple paragraphs.
+            ATM Omitting the row is better than nothing.
+            If row is specified then multiple p
+            will pile on top of each other.
+            The author should only supply 1 p.
+            */
+        /* grid-row: 2; */
+        /* } */
+
+        & img {
+            grid-column: 2;
+            grid-row: 1/-1;
+            width: 100%;
+            height: auto;
+            align-self: center;
+            /* justify-self: center; */
+        }
+
+        /* background-color: lightgray; */
+    }
+
+
+    /* section:nth-of-type(2n):has(img){ */
+    section:has(img):nth-of-type(2n) {
+
+
+
+        & h2 {
+            grid-column: 2;
+            grid-row: 1;
+        }
+
+        & p {
+            grid-column: 2;
+            grid-row: 2;
+        }
+
+        & img {
+            grid-column: 1;
+        }
+
+        /* background-color: gray; */
+
+
+    }
+
+    body>footer {
+        color: white;
+        background-color: black;
+
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: repeat(4, auto);
+
+        margin-top: -80px;
+        padding: 200px 100px 100px 100px;
+
+        & a {
+            grid-column: 1/-1;
+            grid-row: 1;
+        }
+
+        & p {
+            grid-column: 1;
+        }
+
+        /* Copyright */
+        & p:last-of-type {
+            grid-column: 3;
+            font-size: .7rem;
+            /* Push to bottom of grid box. */
+            align-self: end;
+
+            /* TODO Use column gap instead of this. */
+            /* Push social icons and copyright away from the nav to the left. */
+            /* codeID6378 */
+            padding-left: 40px;
+        }
+
+        /* Internal Links */
+        & nav:first-of-type {
+            grid-column: 2;
+            grid-row: 2;
+            column-count: 2;
+        }
+
+        /* Social */
+        & nav:last-of-type {
+            grid-column: 3;
+            grid-row: 2;
+
+            & ul {
+                display: flex;
+                flex-wrap: wrap;
+
+                /* codeID6378 */
+                padding-left: 40px;
+                gap: 10px;
+            }
+        }
+
+
+    }
+}
+
+@layer design {}
+
+@layer look {
+
+    /* Links as buttons */
+
+    
+    article a:not(:has(img)), header a:not(:has(img)) {
+
+        text-decoration: none;
+
+        /* Display */
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+
+        /* See "Gotchas": https://moderncss.dev/css-button-styling-guide/ */
+        /* align-self: center; */
+
+        /* Visual */
+        background-color: var(--color-action);
+        color: var(--very-pale-cyan);
+        border-radius: 30px;
+        box-shadow: 0 3px 5px rgba(0, 0, 0, 0.18);
+
+        /* Size */
+        /* padding: 0.25em 0.75em; */
+        padding: 1.4em 70px;
+
+        /* ? The next 2 caused ovals instead of circles on the social icons. */
+        /* min-width: 10ch; */
+        /* min-height: 56px; */
+
+        /* Text */
+        text-align: center;
+        font-size: .8rem;
+        line-height: 1.1;
+        font-weight: 400;
+        /* ? */
+        letter-spacing: .04rem;
+
+        transition: 220ms all ease-in-out;
+
+        &:hover, &:active {
+            background-color: var(--color-action-active);
+        }
+
+        &:focus {
+            outline-style: solid;
+            outline-color: transparent;
+            box-shadow: 0 0 0 4px yellow;
+        }
+
+        &--small {
+            font-size: 1.15rem;
+        }
+
+        &--block {
+            width: 100%;
+        }
+
+    }
+
+    body>header a:not(:has(img)) {
+        padding: 0px 60px;
+        min-height: 47px;
+        color: var(--very-dark-cyan);
+        background-color: white;
+        font-weight: 700;
+        letter-spacing: normal;
+
+        /* See "Gotchas": https://moderncss.dev/css-button-styling-guide/ */
+        align-self: center;
+
+        &:hover, &:active {
+            background-color: #eee;
+        }
+    }
+
+    section>a {
+        align-self: flex-start;
+    }
+
+    section:last-of-type a {
+        font-size: 1.1rem;
+        padding-block: 28px;
+        border-radius: 40px;
+    }
+
+    /* End of links as buttons */
+
+    body>footer {
+
+        >a>img {
+            /* By eye */
+            padding-bottom: 40px;
+            width: 9rem;
+        }
+
+        & ul {
+            list-style-type: none;
+        }
+
+        & a, a:visited {
+            color: white;
+            text-decoration: none;
+        }
+
+        & a:hover {
+            text-decoration: underline;
+        }
+    }
+
+    /* ==== Icons - Paragraphs ==== */
+
+    body>footer>p:has(svg) {
+        display: grid;
+        /* By eye */
+        grid-template-columns: 36px 1fr;
+
+        /* Keep the first p on the same level as the following nav */
+        +p {
+            margin-top: 20px;
+        }
+
+        & svg {
+            grid-column: 1;
+
+            /* Nudge the icons down - by eye */
+            margin-top: 4px;
+        }
+
+        & p {
+            grid-column: 2;
+        }
+    }
+
+    /* ==== Icons - Social ==== */
+
+    /* CSS circle around icons */
+
+    body>footer nav:last-of-type {
+        /* TODO This may be better on the svg? As on mobile layout. */
+        & a {
+            margin: 0px;
+            padding: 3px;
+            width: 2rem;
+            height: 2rem;
+            display: flex;
+            align-items: center;
+            /* ? Is this correct? There was a warning in devtools ... */
+            align-content: center;
+            justify-content: center;
+            border: 2px solid white;
+            border-radius: 50%;
+            color: white;
+            background-color: inherit;
+        }
+
+        & svg {
+            width: 24px;
+            height: 24px;
+        }
+
+        & a:hover {
+            color: var(--color-action);
+            border-color: var(--color-action);
+        }
+    }
+}
+
+/* Section Borders */
+
+section {
+    background-color: white;
+    border-radius: 15px;
+    /* box-shadow: var(--shadow-3); */
+    box-shadow: 0px 0px 15px #ddd8;
+}
+
+
+
+body>header {}
+
+article>header {
+    background-color: var(--very-pale-cyan);
+    background-image: url(../images/bg-hero-desktop.svg);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+section:last-of-type {
+    /* Partially overlay this last section over the footer in combination with a negative margin on the footer. */
+    position: relative;
+    /* z-index: 1; */
+}
+
+body>footer {
+    /* z-index: -100; */
+}

@@ -1,0 +1,49 @@
+ /* PAGE HEADER */
+/* Use this on larger screens if necessary. But for the moment the mobile version seems to be working. */
+ body>header {
+
+    height: var(--size-body-header-height);
+    padding: 0px var(--size-gutter);
+    display: flex;
+    justify-items: center;
+
+    /* Center image vertically in link */
+    /* ! Need to match the specificity of the earlier <a> so some duplication below. */
+    & a:first-of-type {
+        display: flex;
+        align-items: center;
+    }
+
+    & a:last-of-type {
+        display: flex;
+        align-items: center;
+
+        margin-left: auto;
+        border-radius: 20px;
+        background-color: white;
+    }
+
+    & a:not(:has(img)) {
+        padding: 0px 60px;
+        min-height: 47px;
+        color: var(--very-dark-cyan);
+        background-color: white;
+        font-weight: 700;
+        letter-spacing: normal;
+
+        /* See "Gotchas": https://moderncss.dev/css-button-styling-guide/ */
+        align-self: center;
+
+        &:hover, &:active {
+            background-color: #eee;
+        }
+    }
+
+    & img {
+        /* Measure mockup */
+        width: 200px;
+        height: 31px;
+    }
+
+
+}
